@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game-board {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-bottom: 10px solid rgb(35, 160, 35);
+  margin: 0 auto;
+  overflow: hidden;
+  background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.background {
+  background-position: 0% 100%; background-repeat: repeat-x;
+  background-image: url("../images/mountains.png");
+  position: absolute;
+  height: 133px;
+  width: 2048px;
+  bottom: 0%;
+  animation: background-animation 20s infinite linear;
+}
+
+.pipe {
+  position: absolute;
+  bottom: 0px;
+  width: 80px;
+}
+
+
+.clouds {
+  position: absolute;
+  top: 20%;
+  width: 250px;
+  animation: cross-screen 40s infinite linear;
+}
+
+.mario {
+  width: 150px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.mario_dead{
+  width:60px;
+}
+
+.mario_gone{
+  visibility: hidden;
+}
+
+.jump {
+  animation: mario-jump 0.8s ease-out;
+}
+
+.game_over {
+  position: relative; top: 25%; left: 0; margin: auto;
+  
+  width: 50%; height: 55%; max-width: 300px;
+  visibility: hidden; z-index: 1;
+
+  background-image: url("../images/gameover.png");
+  background-repeat: no-repeat;
+  background-size: 60%;
+}
+
+.score {
+  position: absolute;
+  top:10px; right:40px;
+  
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 22pt;
+}
+
+.superKoopa {
+  position: absolute;
+  top: 20%;
+  width: 40px;
+  animation: cross-screen 25s infinite ease-in;
+}
+
+@keyframes pipe-animation {
+  from { right: -80px; }
+  to   { right: 100%; }
+}
+
+@keyframes cross-screen {
+  from { left: 100%; }
+  to   { left: -100%; }
+}
+
+@keyframes mario-jump {
+  0%   {bottom:0px }
+  50%  { bottom: 170px; }
+  65%  { bottom: 170px; }
+  100% { bottom: 0px;   }
+}
+@keyframes mario-dead {
+  0%   { bottom: 80px;   width: 60px; }
+  50%  { bottom: 120px;  width: 80px; left: 200px }
+  100% { bottom: -200px; width: 50px; left: 200px }
+}
+@keyframes background-animation {
+  from {left: 0px}
+  to   {left: -512px}
+}
